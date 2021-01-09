@@ -1,0 +1,16 @@
+﻿  write-gcode.cpp
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(121): warning C4101: “ne1”: 未引用的局部变量
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(121): warning C4101: “nf”: 未引用的局部变量
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(961): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(970): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(973): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1105): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1122): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1171): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1187): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1228): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1230): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1240): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1242): warning C4018: “<”: 有符号/无符号不匹配
+f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1377): warning C4326: “main”的返回类型应为“int”而非“void”
+  no-seal-infillstucture.vcxproj -> F:\repos\no-seal-infillstucture\Debug\no-seal-infillstucture.exe
