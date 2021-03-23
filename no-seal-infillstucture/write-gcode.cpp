@@ -35,6 +35,8 @@ vector<vector<point> >modelfill(model); //Íê³ÉµÄmodelÌî³äÏß£¬Ò»Î¬²ãÊý£¬¶þÎ¬´Ë²ãµ
 
 
 const string file_1 = "cube.obj";
+const string file_2 = "bunnyr.obj";
+const string file_3 = "check.obj";
 
 
 //Óëµ÷½ÚÊÓ½ÇÓÐ¹Ø
@@ -587,153 +589,19 @@ double distance(point a, point b)
 //	}
 //}
 
-//void triangle(int i)  //Ã»Ïß
-//{
-//
-//	float big_a = 10.0;
-//	float small_a = 6.0;
-//
-//	float s = 0.1;//²½³¤,Òª¿¼ÂÇÌî³äÏßµÄ¿í¶È£¬0<s<=width/2£¬
-//
-//	float distance = (big_a - small_a) / (2 * sqrt(3));
-//
-//	while (i > 4 * distance / s)
-//	{
-//		i = i - int(4 * distance / s);
-//	}
-//	int condition;
-//	if (i < 1 * distance / s) condition = 1;
-//
-//	else if (i < 2 * distance / s) condition = 2;
-//
-//	else if (i < 3 * distance / s) condition = 3;
-//
-//	else if (i < 4 * distance / s) condition = 4;
-//
-//	switch (condition)
-//	{
-//	case 1:
-//	{
-//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
-//		{
-//			for (int n = 0; n < 200 / big_a; n++)
-//			{
-//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
-//				point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                       m*0.5*sqrt(3)*big_a + s * i };
-//
-//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
-//				point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a + s * i };
-//
-//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 };
-//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 - 2 * s * i };
-//
-//
-//				tripoint.push_back(A); tripoint.push_back(B); 
-//				tripoint.push_back(B); tripoint.push_back(C);
-//				tripoint.push_back(C); tripoint.push_back(A);
-//
-//
-//			}
-//		}
-//		break;
-//	}
-//
-//	case 2:
-//	{
-//		i = i - int(distance / s);
-//
-//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
-//		{
-//			for (int n = 0; n < 200 / big_a; n++)
-//			{
-//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
-//				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,             m*0.5*sqrt(3)*big_a + distance - s * i };
-//
-//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
-//				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a + distance - s * i };
-//
-//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 };
-//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) / 2 + 2 * s*i };
-//
-//
-//				tripoint.push_back(A); tripoint.push_back(B);
-//				tripoint.push_back(B); tripoint.push_back(C);
-//				tripoint.push_back(C); tripoint.push_back(A);
-//			}
-//		}
-//		break;
-//	}
-//
-//	case 3://ºÍ1Ïà±È£¬ºá×ø±ê²»±í£¬×Ý×ø±êÈ¡·´
-//	{
-//		i = i - int(2 * distance / s);
-//
-//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
-//		{
-//			for (int n = 0; n < 200 / big_a; n++)
-//			{
-//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
-//				point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                     m*0.5*sqrt(3)*big_a - s * i };
-//
-//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
-//				point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a - s * i };
-//
-//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 };
-//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 + 2 * s * i };
-//
-//
-//				tripoint.push_back(A); tripoint.push_back(B);
-//				tripoint.push_back(B); tripoint.push_back(C);
-//				tripoint.push_back(C); tripoint.push_back(A);
-//			}
-//		}
-//		break;
-//	}
-//
-//	case 4://Óë2Ïà±È£¬ºá×ø±ê²»±ä£¬×Ý×ø±êÈ¡·´
-//	{
-//		i = i - int(3 * distance / s);
-//
-//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
-//		{
-//			for (int n = 0; n < 200 / big_a; n++)
-//			{
-//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
-//				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a - distance + s * i };
-//
-//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
-//				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a - distance + s * i };
-//
-//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 };
-//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - distance - small_a * sqrt(3) / 2 - 2 * s*i };
-//
-//
-//				tripoint.push_back(A); tripoint.push_back(B);
-//				tripoint.push_back(B); tripoint.push_back(C);
-//				tripoint.push_back(C); tripoint.push_back(A);
-//			}
-//		}
-//		break;
-//	}
-//
-//	default: printf("ÓÐÎÊÌâ");
-//		break;
-//	}
-//}
-
-void triangle(int i)  //ÊÔÍ¼¹áÍ¨ËùÓÐµÄ¶´
+void triangle(int i)  //Ã»Ïß
 {
 
-	float big_a = 10.0;
+	float big_a = 17.0;
 	float small_a = 6.0;
 
 	float s = 0.1;//²½³¤,Òª¿¼ÂÇÌî³äÏßµÄ¿í¶È£¬0<s<=width/2£¬
 
 	float distance = (big_a - small_a) / (2 * sqrt(3));
 
-	while (i > 6 * distance / s)
+	while (i > 4 * distance / s)
 	{
-		i = i - int(6 * distance / s);
+		i = i - int(4 * distance / s);
 	}
 	int condition;
 	if (i < 1 * distance / s) condition = 1;
@@ -744,17 +612,13 @@ void triangle(int i)  //ÊÔÍ¼¹áÍ¨ËùÓÐµÄ¶´
 
 	else if (i < 4 * distance / s) condition = 4;
 
-	else if (i < 5 * distance / s) condition = 5;
-
-	else if (i < 6 * distance / s) condition = 6;
-
 	switch (condition)
 	{
 	case 1:
 	{
-		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+		for (int m = 0; m < 150*2 / big_a * sqrt(3) ; m++)
 		{
-			for (int n = 0; n < 200 / big_a; n++)
+			for (int n = 0; n < 200 / big_a; n++) //×ö´óºá×ø±ê£¬³ýÒÔ´ó±ß³¤£¬¾ÍÊÇºá×Å×Ü¹²ÓÐ¼¸¸öÈý½ÇÐÎ
 			{
 				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
 				point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                       m*0.5*sqrt(3)*big_a + s * i };
@@ -766,7 +630,7 @@ void triangle(int i)  //ÊÔÍ¼¹áÍ¨ËùÓÐµÄ¶´
 				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 - 2 * s * i };
 
 
-				tripoint.push_back(A); tripoint.push_back(B);
+				tripoint.push_back(A); tripoint.push_back(B); 
 				tripoint.push_back(B); tripoint.push_back(C);
 				tripoint.push_back(C); tripoint.push_back(A);
 
@@ -785,13 +649,13 @@ void triangle(int i)  //ÊÔÍ¼¹áÍ¨ËùÓÐµÄ¶´
 			for (int n = 0; n < 200 / big_a; n++)
 			{
 				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
-				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a + distance - s * i };
+				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,             m*0.5*sqrt(3)*big_a + distance - s * i };
 
 				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
 				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a + distance - s * i };
 
-				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 };
-				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) * 0.5 + 2 * s*i };
+				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 };
+				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) / 2 + 2 * s*i };
 
 
 				tripoint.push_back(A); tripoint.push_back(B);
@@ -854,107 +718,772 @@ void triangle(int i)  //ÊÔÍ¼¹áÍ¨ËùÓÐµÄ¶´
 		break;
 	}
 
-	case 5:
-	{
-		i = i - int(4 * distance / s);
-
-		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
-		{
-			for (int n = 0; n < 200 / big_a; n++)
-			{
-				point E = { n * big_a + s * sqrt(3)*i ,                     m*sqrt(3)*big_a + sqrt(3)*big_a - s * i };
-				point B = { n * big_a + s * sqrt(3)*i ,                     m*sqrt(3)*big_a + s * i };
-
-				point F = { n * big_a + big_a - s * sqrt(3)*i ,             m*sqrt(3)*big_a + sqrt(3)*big_a - s * i };
-				point C = { n * big_a + big_a - s * sqrt(3)*i ,             m*sqrt(3)*big_a + s * i };
-
-				point D = { n * big_a + big_a * 0.5 ,                       m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 + 2 * s * i };
-				point A = { n * big_a + big_a * 0.5 ,                       m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 - 2 * s * i };
-
-
-
-				//point K = { n * big_a + big_a * 0.5 + s * sqrt(3)*i,        m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 + s * i };
-				//point H = { n * big_a + big_a * 0.5 + s * sqrt(3)*i,        m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 - s * i };
-
-				//point J = { n * big_a + big_a ,                             m*sqrt(3)*big_a + sqrt(3)*big_a - 2 * s * i };
-				//point G = { n * big_a + big_a ,                             m*sqrt(3)*big_a + 2 * s * i };
-
-				//point L = { n * big_a + big_a * 1.5 - s * sqrt(3)*i ,       m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 + s * i };
-				//point I = { n * big_a + big_a * 1.5 - s * sqrt(3)*i,        m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 - s * i };
-
-
-
-
-				tripoint.push_back(D); tripoint.push_back(E);
-				tripoint.push_back(E); tripoint.push_back(F);
-				tripoint.push_back(F); tripoint.push_back(D);
-				tripoint.push_back(A); tripoint.push_back(B);
-				tripoint.push_back(B); tripoint.push_back(C);
-				tripoint.push_back(C); tripoint.push_back(A);
-
-				/*tripoint.push_back(K); tripoint.push_back(J);
-				tripoint.push_back(J); tripoint.push_back(L);
-				tripoint.push_back(L); tripoint.push_back(K);
-				tripoint.push_back(H); tripoint.push_back(G);
-				tripoint.push_back(G); tripoint.push_back(I);
-				tripoint.push_back(I); tripoint.push_back(H);
-*/
-
-			}
-		}
-		break;
-	}
-
-	case 6:
-	{
-		i = i - int(5 * distance / s);
-
-		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
-		{
-			for (int n = 0; n < 200 / big_a; n++)
-			{
-				point E = { n * big_a + (distance - s * i) * sqrt(3) ,           m*sqrt(3)*big_a + sqrt(3)*big_a - distance + s * i };
-				point B = { n * big_a + (distance - s * i) * sqrt(3) ,           m*sqrt(3)*big_a + distance - s * i };
-
-				point F = { n * big_a + big_a - (distance - s * i) * sqrt(3) ,   m*sqrt(3)*big_a + sqrt(3)*big_a - distance + s * i };
-				point C = { n * big_a + big_a - (distance - s * i) * sqrt(3) ,   m*sqrt(3)*big_a + distance - s * i };
-
-				point D = { n * big_a + big_a / 2 ,                              m*sqrt(3)*big_a + 5*distance + small_a * sqrt(3) * 0.5 - 2 * s*i };
-				point A = { n * big_a + big_a / 2 ,                              m*sqrt(3)*big_a + distance + small_a * sqrt(3) * 0.5 + 2 * s*i };
-
-				/*point K = { n * big_a + big_a - 0.5*small_a - s * i * sqrt(3),   m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 +distance - s * i };
-				point H = { n * big_a + big_a - 0.5*small_a - s * i * sqrt(3),   m*sqrt(3)*big_a + small_a * sqrt(3) * 0.5 + 2*distance + s * i };
-
-				point J = { n * big_a + big_a ,                                  m*sqrt(3)*big_a + sqrt(3)*big_a - 2 * distance + 2 * s * i };
-				point G = { n * big_a + big_a ,                                  m*sqrt(3)*big_a + 2 * distance - 2 * s * i };
-
-				point L = { n * big_a + big_a + 0.5*small_a + s * sqrt(3)*i,     m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 + distance - s * i };
-				point I = { n * big_a + big_a + 0.5*small_a + s * sqrt(3)*i,     m*sqrt(3)*big_a + small_a * sqrt(3) * 0.5 + 2 * distance + s * i };
-*/
-
-				tripoint.push_back(D); tripoint.push_back(E);
-				tripoint.push_back(E); tripoint.push_back(F);
-				tripoint.push_back(F); tripoint.push_back(D);
-				tripoint.push_back(A); tripoint.push_back(B);
-				tripoint.push_back(B); tripoint.push_back(C);
-				tripoint.push_back(C); tripoint.push_back(A);
-
-				/*tripoint.push_back(K); tripoint.push_back(J);
-				tripoint.push_back(J); tripoint.push_back(L);
-				tripoint.push_back(L); tripoint.push_back(K);
-				tripoint.push_back(H); tripoint.push_back(G);
-				tripoint.push_back(G); tripoint.push_back(I);
-				tripoint.push_back(I); tripoint.push_back(H);*/
-
-			}
-		}
-		break;
-	}
-
 	default: printf("ÓÐÎÊÌâ");
 		break;
 	}
 }
+
+//void triangle(int i)  //Ã»Ïß,ÊÔÍ¼½â¾öÀ­Ë¿ÎÊÌâ£¬¾ÍÊÇÏÈ»­ËùÓÐµÄºá£¬ÔÙ»­ËùÓÐµÄØ¯£¬ÔÙ»­ËùÓÐµÄÞà
+//{
+//
+//	float big_a = 17.0;
+//	float small_a = 6.0;
+//
+//	int m = 0, n = 0;
+//	int M, N;
+//	N = 10;
+//	M = N;
+//
+//	float s = 0.1;//²½³¤,Òª¿¼ÂÇÌî³äÏßµÄ¿í¶È£¬0<s<=width/2£¬
+//
+//	float distance = (big_a - small_a) / (2 * sqrt(3));
+//
+//	while (i > 4 * distance / s)
+//	{
+//		i = i - int(4 * distance / s);
+//	}
+//	int condition;
+//	if (i < 1 * distance / s) condition = 1;
+//
+//	else if (i < 2 * distance / s) condition = 2;
+//
+//	else if (i < 3 * distance / s) condition = 3;
+//
+//	else if (i < 4 * distance / s) condition = 4;
+//
+//	switch (condition)
+//	{
+//	case 1:
+//	{
+//
+//		for (; m <= M; m++) //Ò»
+//		{
+//			if (m % 2 == 0)
+//			{
+//				for (int n = 0; n <= N; n++)
+//				{
+//					point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                       m*0.5*sqrt(3)*big_a + s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a + s * i };
+//					tripoint.push_back(B); tripoint.push_back(C);
+//				}
+//			}
+//			else
+//			{
+//				for (int n = N; n >= 0; n--)
+//				{
+//					point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                       m*0.5*sqrt(3)*big_a + s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a + s * i };
+//					tripoint.push_back(C); tripoint.push_back(B);
+//				}
+//			}
+//		}
+//		m = 0, n = 0;
+//		for (; n <= N; n++) //Ø¯
+//		{
+//			if (n % 2 == 0)
+//			{
+//				for (int m = 0; m <= M; m++)
+//				{
+//					point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 - 2 * s * i };
+//					point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                       m*0.5*sqrt(3)*big_a + s * i };
+//					tripoint.push_back(B); tripoint.push_back(A);
+//				}
+//			}
+//			else
+//			{
+//				for (int m = M ; m >= 0; m--)
+//				{
+//					point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 - 2 * s * i };
+//					point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                       m*0.5*sqrt(3)*big_a + s * i };
+//					tripoint.push_back(A); tripoint.push_back(B);
+//				}
+//			}
+//		}
+//	
+//		for (int j = 1; j <= 2*M+1; j++)//ÕâÀïÊÇÐ±×Å±éÀúÞà
+//		{
+//			if (j <= M + 1)
+//			{
+//				if (j % 2 == 0)
+//				{
+//					n = N - j + 1;
+//					m = M;
+//					goto even1;
+//				}
+//				else
+//				{
+//					n = N;
+//					m = M - j + 1;
+//					goto odd1;
+//				}
+//			}
+//			else
+//			{
+//				if (j % 2 == 0)
+//				{
+//					n = 0;
+//					m = 2 * M + 1 - j;
+//					goto even1;
+//				}
+//				else
+//				{
+//					n = 2 * M + 1 - j;
+//					m = 0;
+//					goto odd1;
+//				}
+//			}
+//
+//		even1:
+//			do//ÆæÊýÐÐÒª·´Þà£¬ºÍÇ°ÃæµÄÌá¶ÔÓ¦£¬
+//			{
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 - 2 * s * i };
+//				point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a + s * i };
+//				tripoint.push_back(A); tripoint.push_back(C);
+//				
+//				m--;
+//				n++;
+//			} while (m >= 0 && n <= N);
+//			continue;
+//		odd1:
+//			do
+//			{
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 - 2 * s * i };
+//				point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a + s * i };
+//				tripoint.push_back(C); tripoint.push_back(A);
+//				
+//				m++;
+//				n--;
+//			} while (m <= M && n >= 0);
+//
+//		}
+//
+//		break;
+//	}
+//
+//	case 2:
+//	{
+//		i = i - int(distance / s);
+//
+//		/*for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
+//				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,             m*0.5*sqrt(3)*big_a + distance - s * i };
+//
+//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
+//				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a + distance - s * i };
+//
+//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 };
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) / 2 + 2 * s*i };
+//
+//
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//			}
+//		}*/
+//
+//
+//		for (; m <= M; m++) //Ò»
+//		{
+//			if (m % 2 == 0)
+//			{
+//				for (int n = 0; n <= N; n++)
+//				{
+//					point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,             m*0.5*sqrt(3)*big_a + distance - s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a + distance - s * i };
+//					tripoint.push_back(B); tripoint.push_back(C);
+//				}
+//			}
+//			else
+//			{
+//				for (int n = N; n >= 0; n--)
+//				{
+//					point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,             m*0.5*sqrt(3)*big_a + distance - s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a + distance - s * i };
+//					tripoint.push_back(C); tripoint.push_back(B);
+//				}
+//			}
+//		}
+//		m = 0, n = 0;
+//		for (; n <= N; n++) //Ø¯
+//		{
+//			if (n % 2 == 0)
+//			{
+//				for (int m = 0; m <= M; m++)
+//				{
+//					point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) / 2 + 2 * s*i };
+//					point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,             m*0.5*sqrt(3)*big_a + distance - s * i };
+//					tripoint.push_back(B); tripoint.push_back(A);
+//				}
+//			}
+//			else
+//			{
+//				for (int m = M; m >= 0; m--)
+//				{
+//					point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) / 2 + 2 * s*i };
+//					point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,             m*0.5*sqrt(3)*big_a + distance - s * i };
+//					tripoint.push_back(A); tripoint.push_back(B);
+//				}
+//			}
+//		}
+//
+//		for (int j = 1; j <= 2 * M + 1; j++)//ÕâÀïÊÇÐ±×Å±éÀúÞà
+//		{
+//			if (j <= M + 1)
+//			{
+//				if (j % 2 == 0)
+//				{
+//					n = N - j + 1;
+//					m = M;
+//					goto even2;
+//				}
+//				else
+//				{
+//					n = N;
+//					m = M - j + 1;
+//					goto odd2;
+//				}
+//			}
+//			else
+//			{
+//				if (j % 2 == 0)
+//				{
+//					n = 0;
+//					m = 2 * M + 1 - j;
+//					goto even2;
+//				}
+//				else
+//				{
+//					n = 2 * M + 1 - j;
+//					m = 0;
+//					goto odd2;
+//				}
+//			}
+//
+//		even2:
+//			do//ÆæÊýÐÐÒª·´Þà£¬ºÍÇ°ÃæµÄÌá¶ÔÓ¦£¬
+//			{
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) / 2 + 2 * s*i };
+//				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a + distance - s * i };
+//				tripoint.push_back(A); tripoint.push_back(C);
+//
+//				m--;
+//				n++;
+//			} while (m >= 0 && n <= N);
+//			continue;
+//		odd2:
+//			do
+//			{
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) / 2 + 2 * s*i };
+//				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a + distance - s * i };
+//				tripoint.push_back(C); tripoint.push_back(A);
+//
+//				m++;
+//				n--;
+//			} while (m <= M && n >= 0);
+//
+//		}
+//		break;
+//	}
+//
+//	case 3://ºÍ1Ïà±È£¬ºá×ø±ê²»±í£¬×Ý×ø±êÈ¡·´
+//	{
+//		i = i - int(2 * distance / s);
+//
+//		/*for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
+//				point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                     m*0.5*sqrt(3)*big_a - s * i };
+//
+//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
+//				point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a - s * i };
+//
+//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 };
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 + 2 * s * i };
+//
+//
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//			}
+//		}*/
+//
+//
+//		for (; m <= M; m++) //Ò»
+//		{
+//			if (m % 2 == 0)
+//			{
+//				for (int n = 0; n <= N; n++)
+//				{
+//					point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                     m*0.5*sqrt(3)*big_a - s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a - s * i };
+//					tripoint.push_back(B); tripoint.push_back(C);
+//				}
+//			}
+//			else
+//			{
+//				for (int n = N; n >= 0; n--)
+//				{
+//					point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                     m*0.5*sqrt(3)*big_a - s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a - s * i };
+//					tripoint.push_back(C); tripoint.push_back(B);
+//				}
+//			}
+//		}
+//		m = 0, n = 0;
+//		for (; n <= N; n++) //Ø¯
+//		{
+//			if (n % 2 == 0)
+//			{
+//				for (int m = 0; m <= M; m++)
+//				{
+//					point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 + 2 * s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a - s * i };
+//					tripoint.push_back(A); tripoint.push_back(C);
+//				}
+//			}
+//			else
+//			{
+//				for (int m = M; m >= 0; m--)
+//				{
+//					point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 + 2 * s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a - s * i };
+//					tripoint.push_back(C); tripoint.push_back(A);
+//				}
+//			}
+//		}
+//
+//		for (int j = 1; j <= 2 * M + 1; j++)//ÕâÀïÊÇÐ±×Å±éÀúÞà
+//		{
+//			if (j <= M + 1)
+//			{
+//				if (j % 2 == 0)
+//				{
+//					n = N - j + 1;
+//					m = M;
+//					goto even3;
+//				}
+//				else
+//				{
+//					n = N;
+//					m = M - j + 1;
+//					goto odd3;
+//				}
+//			}
+//			else
+//			{
+//				if (j % 2 == 0)
+//				{
+//					n = 0;
+//					m = 2 * M + 1 - j;
+//					goto even3;
+//				}
+//				else
+//				{
+//					n = 2 * M + 1 - j;
+//					m = 0;
+//					goto odd3;
+//				}
+//			}
+//
+//		even3:
+//			do//ÆæÊýÐÐÒª·´Þà£¬ºÍÇ°ÃæµÄÌá¶ÔÓ¦£¬
+//			{
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 + 2 * s * i };
+//				point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                     m*0.5*sqrt(3)*big_a - s * i };
+//				tripoint.push_back(B); tripoint.push_back(A);
+//
+//				m--;
+//				n++;
+//			} while (m >= 0 && n <= N);
+//			continue;
+//		odd3:
+//			do
+//			{
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 + 2 * s * i };
+//				point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                     m*0.5*sqrt(3)*big_a - s * i };
+//				tripoint.push_back(A); tripoint.push_back(B);
+//
+//				m++;
+//				n--;
+//			} while (m <= M && n >= 0);
+//
+//		}
+//
+//		break;
+//	}
+//
+//	case 4://Óë2Ïà±È£¬ºá×ø±ê²»±ä£¬×Ý×ø±êÈ¡·´
+//	{
+//		i = i - int(3 * distance / s);
+//
+//		/*for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
+//				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a - distance + s * i };
+//
+//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
+//				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a - distance + s * i };
+//
+//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 };
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - distance - small_a * sqrt(3) / 2 - 2 * s*i };
+//
+//
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//			}
+//		}*/
+//
+//
+//		for (; m <= M; m++) //Ò»
+//		{
+//			if (m % 2 == 0)
+//			{
+//				for (int n = 0; n <= N; n++)
+//				{
+//					point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a - distance + s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a - distance + s * i };
+//					tripoint.push_back(B); tripoint.push_back(C);
+//				}
+//			}
+//			else
+//			{
+//				for (int n = N; n >= 0; n--)
+//				{
+//					point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a - distance + s * i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a - distance + s * i };
+//					tripoint.push_back(C); tripoint.push_back(B);
+//				}
+//			}
+//		}
+//		m = 0, n = 0;
+//		for (; n <= N; n++) //Ø¯
+//		{
+//			if (n % 2 == 0)
+//			{
+//				for (int m = 0; m <= M; m++)
+//				{
+//					point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - distance - small_a * sqrt(3) / 2 - 2 * s*i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a - distance + s * i };
+//					tripoint.push_back(A); tripoint.push_back(C);
+//				}
+//			}
+//			else
+//			{
+//				for (int m = M; m >= 0; m--)
+//				{
+//					point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - distance - small_a * sqrt(3) / 2 - 2 * s*i };
+//					point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a - distance + s * i };
+//					tripoint.push_back(C); tripoint.push_back(A);
+//				}
+//			}
+//		}
+//
+//		for (int j = 1; j <= 2 * M + 1; j++)//ÕâÀïÊÇÐ±×Å±éÀúÞà
+//		{
+//			if (j <= M + 1)
+//			{
+//				if (j % 2 == 0)
+//				{
+//					n = N - j + 1;
+//					m = M;
+//					goto even4;
+//				}
+//				else
+//				{
+//					n = N;
+//					m = M - j + 1;
+//					goto odd4;
+//				}
+//			}
+//			else
+//			{
+//				if (j % 2 == 0)
+//				{
+//					n = 0;
+//					m = 2 * M + 1 - j;
+//					goto even4;
+//				}
+//				else
+//				{
+//					n = 2 * M + 1 - j;
+//					m = 0;
+//					goto odd4;
+//				}
+//			}
+//
+//		even4:
+//			do//ÆæÊýÐÐÒª·´Þà£¬ºÍÇ°ÃæµÄÌá¶ÔÓ¦£¬
+//			{
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - distance - small_a * sqrt(3) / 2 - 2 * s*i };
+//				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a - distance + s * i };
+//				tripoint.push_back(B); tripoint.push_back(A);
+//
+//				m--;
+//				n++;
+//			} while (m >= 0 && n <= N);
+//			continue;
+//		odd4:
+//			do
+//			{
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - distance - small_a * sqrt(3) / 2 - 2 * s*i };
+//				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a - distance + s * i };
+//				tripoint.push_back(A); tripoint.push_back(B);
+//
+//				m++;
+//				n--;
+//			} while (m <= M && n >= 0);
+//
+//		}
+//		break;
+//	}
+//
+//	default: printf("ÓÐÎÊÌâ");
+//		
+//	}
+//}
+
+//void triangle(int i)  //ÊÔÍ¼¹áÍ¨ËùÓÐµÄ¶´
+//{
+//
+//	float big_a = 10.0;
+//	float small_a = 6.0;
+//
+//	float s = 0.1;//²½³¤,Òª¿¼ÂÇÌî³äÏßµÄ¿í¶È£¬0<s<=width/2£¬
+//
+//	float distance = (big_a - small_a) / (2 * sqrt(3));
+//
+//	while (i > 6 * distance / s)
+//	{
+//		i = i - int(6 * distance / s);
+//	}
+//	int condition;
+//	if (i < 1 * distance / s) condition = 1;
+//
+//	else if (i < 2 * distance / s) condition = 2;
+//
+//	else if (i < 3 * distance / s) condition = 3;
+//
+//	else if (i < 4 * distance / s) condition = 4;
+//
+//	else if (i < 5 * distance / s) condition = 5;
+//
+//	else if (i < 6 * distance / s) condition = 6;
+//
+//	switch (condition)
+//	{
+//	case 1:
+//	{
+//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
+//				point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                       m*0.5*sqrt(3)*big_a + s * i };
+//
+//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
+//				point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a + s * i };
+//
+//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 };
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) / 2 - 2 * s * i };
+//
+//
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//
+//
+//			}
+//		}
+//		break;
+//	}
+//
+//	case 2:
+//	{
+//		i = i - int(distance / s);
+//
+//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
+//				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a + distance - s * i };
+//
+//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
+//				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a + distance - s * i };
+//
+//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 };
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a + distance + small_a * sqrt(3) * 0.5 + 2 * s*i };
+//
+//
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//			}
+//		}
+//		break;
+//	}
+//
+//	case 3://ºÍ1Ïà±È£¬ºá×ø±ê²»±í£¬×Ý×ø±êÈ¡·´
+//	{
+//		i = i - int(2 * distance / s);
+//
+//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
+//				point B = { m*0.5*big_a + n * big_a + s * sqrt(3)*i  ,                     m*0.5*sqrt(3)*big_a - s * i };
+//
+//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
+//				point C = { m*0.5*big_a + n * big_a + big_a - s * sqrt(3)*i ,              m*0.5*sqrt(3)*big_a - s * i };
+//
+//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 };
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 + 2 * s * i };
+//
+//
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//			}
+//		}
+//		break;
+//	}
+//
+//	case 4://Óë2Ïà±È£¬ºá×ø±ê²»±ä£¬×Ý×ø±êÈ¡·´
+//	{
+//		i = i - int(3 * distance / s);
+//
+//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { m*0.5*big_a + n * big_a + 0 ,                                  m*0.5*sqrt(3)*big_a + 0 };
+//				point B = { m*0.5*big_a + n * big_a + (distance - s * i) * sqrt(3) ,       m*0.5*sqrt(3)*big_a - distance + s * i };
+//
+//				point F = { m*0.5*big_a + n * big_a + big_a  ,                             m*0.5*sqrt(3)*big_a + 0 };
+//				point C = { m*0.5*big_a + n * big_a + big_a - (distance - s * i) * sqrt(3),m*0.5*sqrt(3)*big_a - distance + s * i };
+//
+//				point D = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - big_a * sqrt(3) / 2 };
+//				point A = { m*0.5*big_a + n * big_a + big_a / 2 ,                          m*0.5*sqrt(3)*big_a - distance - small_a * sqrt(3) / 2 - 2 * s*i };
+//
+//
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//			}
+//		}
+//		break;
+//	}
+//
+//	case 5:
+//	{
+//		i = i - int(4 * distance / s);
+//
+//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { n * big_a + s * sqrt(3)*i ,                     m*sqrt(3)*big_a + sqrt(3)*big_a - s * i };
+//				point B = { n * big_a + s * sqrt(3)*i ,                     m*sqrt(3)*big_a + s * i };
+//
+//				point F = { n * big_a + big_a - s * sqrt(3)*i ,             m*sqrt(3)*big_a + sqrt(3)*big_a - s * i };
+//				point C = { n * big_a + big_a - s * sqrt(3)*i ,             m*sqrt(3)*big_a + s * i };
+//
+//				point D = { n * big_a + big_a * 0.5 ,                       m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 + 2 * s * i };
+//				point A = { n * big_a + big_a * 0.5 ,                       m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 - 2 * s * i };
+//
+//
+//
+//				//point K = { n * big_a + big_a * 0.5 + s * sqrt(3)*i,        m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 + s * i };
+//				//point H = { n * big_a + big_a * 0.5 + s * sqrt(3)*i,        m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 - s * i };
+//
+//				//point J = { n * big_a + big_a ,                             m*sqrt(3)*big_a + sqrt(3)*big_a - 2 * s * i };
+//				//point G = { n * big_a + big_a ,                             m*sqrt(3)*big_a + 2 * s * i };
+//
+//				//point L = { n * big_a + big_a * 1.5 - s * sqrt(3)*i ,       m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 + s * i };
+//				//point I = { n * big_a + big_a * 1.5 - s * sqrt(3)*i,        m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 - s * i };
+//
+//
+//
+//
+//				tripoint.push_back(D); tripoint.push_back(E);
+//				tripoint.push_back(E); tripoint.push_back(F);
+//				tripoint.push_back(F); tripoint.push_back(D);
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//
+//				/*tripoint.push_back(K); tripoint.push_back(J);
+//				tripoint.push_back(J); tripoint.push_back(L);
+//				tripoint.push_back(L); tripoint.push_back(K);
+//				tripoint.push_back(H); tripoint.push_back(G);
+//				tripoint.push_back(G); tripoint.push_back(I);
+//				tripoint.push_back(I); tripoint.push_back(H);
+//*/
+//
+//			}
+//		}
+//		break;
+//	}
+//
+//	case 6:
+//	{
+//		i = i - int(5 * distance / s);
+//
+//		for (int m = 0; m < 150 / big_a * sqrt(3) / 2; m++)
+//		{
+//			for (int n = 0; n < 200 / big_a; n++)
+//			{
+//				point E = { n * big_a + (distance - s * i) * sqrt(3) ,           m*sqrt(3)*big_a + sqrt(3)*big_a - distance + s * i };
+//				point B = { n * big_a + (distance - s * i) * sqrt(3) ,           m*sqrt(3)*big_a + distance - s * i };
+//
+//				point F = { n * big_a + big_a - (distance - s * i) * sqrt(3) ,   m*sqrt(3)*big_a + sqrt(3)*big_a - distance + s * i };
+//				point C = { n * big_a + big_a - (distance - s * i) * sqrt(3) ,   m*sqrt(3)*big_a + distance - s * i };
+//
+//				point D = { n * big_a + big_a / 2 ,                              m*sqrt(3)*big_a + 5*distance + small_a * sqrt(3) * 0.5 - 2 * s*i };
+//				point A = { n * big_a + big_a / 2 ,                              m*sqrt(3)*big_a + distance + small_a * sqrt(3) * 0.5 + 2 * s*i };
+//
+//				/*point K = { n * big_a + big_a - 0.5*small_a - s * i * sqrt(3),   m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 +distance - s * i };
+//				point H = { n * big_a + big_a - 0.5*small_a - s * i * sqrt(3),   m*sqrt(3)*big_a + small_a * sqrt(3) * 0.5 + 2*distance + s * i };
+//
+//				point J = { n * big_a + big_a ,                                  m*sqrt(3)*big_a + sqrt(3)*big_a - 2 * distance + 2 * s * i };
+//				point G = { n * big_a + big_a ,                                  m*sqrt(3)*big_a + 2 * distance - 2 * s * i };
+//
+//				point L = { n * big_a + big_a + 0.5*small_a + s * sqrt(3)*i,     m*sqrt(3)*big_a + big_a * sqrt(3) * 0.5 + distance - s * i };
+//				point I = { n * big_a + big_a + 0.5*small_a + s * sqrt(3)*i,     m*sqrt(3)*big_a + small_a * sqrt(3) * 0.5 + 2 * distance + s * i };
+//*/
+//
+//				tripoint.push_back(D); tripoint.push_back(E);
+//				tripoint.push_back(E); tripoint.push_back(F);
+//				tripoint.push_back(F); tripoint.push_back(D);
+//				tripoint.push_back(A); tripoint.push_back(B);
+//				tripoint.push_back(B); tripoint.push_back(C);
+//				tripoint.push_back(C); tripoint.push_back(A);
+//
+//				/*tripoint.push_back(K); tripoint.push_back(J);
+//				tripoint.push_back(J); tripoint.push_back(L);
+//				tripoint.push_back(L); tripoint.push_back(K);
+//				tripoint.push_back(H); tripoint.push_back(G);
+//				tripoint.push_back(G); tripoint.push_back(I);
+//				tripoint.push_back(I); tripoint.push_back(H);*/
+//
+//			}
+//		}
+//		break;
+//	}
+//
+//	default: printf("ÓÐÎÊÌâ");
+//		break;
+//	}
+//}
 
 void intersection()           //ÔÚÕâÀïÃæµ÷½ÚÒª²»Òª±ä»¯
 {
@@ -1059,9 +1588,114 @@ void intersection()           //ÔÚÕâÀïÃæµ÷½ÚÒª²»Òª±ä»¯
 
 }
 
-void writegcode(float z) //ÅÌÎÆµÄ¸ñÊ½
+void writegcode_ultimaker3(float z) //cura
+{
+	float t = 0.017776;//¶ÔÓ¦0.2µÄ²ãºñ,¿í¶È0.42
+	double E = 0;
+
+	FILE* fp;
+
+	errno_t err;     //ÅÐ¶Ï´ËÎÄ¼þÁ÷ÊÇ·ñ´æÔÚ ´æÔÚ·µ»Ø1
+
+	err = fopen_s(&fp, "cura.gcode", "a"); //Èôreturn 1 , Ôò½«Ö¸ÏòÕâ¸öÎÄ¼þµÄÎÄ¼þÁ÷¸øfp1
+
+	fprintf(fp, "T0\n");
+	fprintf(fp, "M82\n");
+	fprintf(fp, "G92 E0\n");
+	fprintf(fp, "M109 S210\n");
+	fprintf(fp, "G280 S1\n");
+	fprintf(fp, "G0 Z20.001\n");
+	fprintf(fp, "G1 F1500 E-6.5\n");
+	fprintf(fp, "M107\n");
+	fprintf(fp, ";LAYER_COUNT: %d\n", modelfill.size());
+
+	fprintf(fp, ";LAYER:0\n");
+
+	fprintf(fp, "G0 F2000 Z%.1f\n", 0.1);
+	for (int i = 0; Bmin_x + 2 * i * 0.42 + 0.42 < Bmax_x; i++)  //µÚ1¡¢2²ã´òÊµ£¬µÚÒ»²ã¸ß¶ÈÊÇ0.27
+	{
+		fprintf(fp, "G0 F2000 X%f Y%f \n", Bmin_x + 2 * i * 0.42,        Bmin_y);
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmin_x + 2 * i * 0.42,        Bmax_y, E += (Bmax_y - Bmin_y)*t);
+		fprintf(fp, "G0 F2000 X%f Y%f \n",    Bmin_x + 2 * i * 0.42 + 0.42, Bmax_y );
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmin_x + 2 * i * 0.42 + 0.42, Bmin_y, E += (Bmax_y - Bmin_y)*t);
+	}
+	fprintf(fp, ";LAYER:1\n");
+
+	fprintf(fp, "G0 F2000 Z%.1f\n", 0.3);
+	for (int i = 0; Bmin_y + 2 * i * 0.42 + 0.42 < Bmax_y; i++)  //ÕâÊÇµÚ¶þ²ã£¬¶þ²ãÒÔºó¶¼ÊÇ0.2
+	{
+		fprintf(fp, "G0 F2000 X%f Y%f \n", Bmin_x , Bmin_y + 2 * i * 0.42);
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmax_x , Bmin_y + 2 * i * 0.42,        E += (Bmax_y - Bmin_y)*t);
+		fprintf(fp, "G0 F2000 X%f Y%f \n",    Bmax_x , Bmin_y + 2 * i * 0.42 + 0.42);
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmin_x , Bmin_y + 2 * i * 0.42 + 0.42, E += (Bmax_y - Bmin_y)*t);
+	}
+
+	
+	for (int i = 0; i < model.size()-4; i++) //i´ú±í²ãÊý£¬Òª¼Ó¼¸²ã´òÊµÔÚµÄ£¬½çÏÞ¾Í¼õ¼¸£¬ÔÙ¸Ä¸ß¶È   
+	{
+		fprintf(fp, ";LAYER:%d\n", i+2);//¼ÓÁË¼¸²ãµ×£¬ÕâÀï¾Í¼Ó¼¸
+		fprintf(fp, ";TYPE:OUTLINE\n");
+		//fprintf(fp, "G0 F2000 Z%.3f\n", 0.500 + i * z);//È¥µôÂÖÀªÏßÊ±ÓÃµ½£¬È·¶¨Z
+
+		//ÂÖÀªÏß
+		fprintf(fp, "G0 F2000 X%.3f Y%.3f Z%.1f\n", model[i][0].x, model[i][0].y, 0.3 + i * z);//3²ã¸ß¶È¼Ói*z£¬i´Ó0¿ªÊ¼
+
+		fprintf(fp, "G1 F1200 X%.3f Y%.3f E%.5f\n", model[i][1].x, model[i][1].y, E += distance(model[i][0], model[i][1])*t);
+		for (int j = 2; j < model[i].size(); j++)
+		{
+			fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][j].x, model[i][j].y, E += distance(model[i][j - 1], model[i][j])*t);
+		}
+		fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][0].x, model[i][0].y, E += distance(model[i][model[i].size() - 1], model[i][0])*t); //»­Ò»¸öÈ¦£¬Òª»ØÔ­µã
+		fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][1].x, model[i][1].y, E += distance(model[i][model[i].size() - 1], model[i][0])*0.01);//»Øµ½Ô­µãÔÙ¶à³öÈ¥Ò»µã£¬ÓÐÀûÓÚ²»ÇÌ±ß
+
+		//Ìî³äÏß
+		fprintf(fp, ";TYPE:FILL\n");
+		for (int k = 1; k < modelfill[i].size(); k += 2)
+		{
+			fprintf(fp, "G0 F2000 X%.3f Y%.3f\n", modelfill[i][k - 1].x, modelfill[i][k - 1].y);
+			fprintf(fp, "G1 F1200 X%.3f Y%.3f E%.5f\n", modelfill[i][k].x, modelfill[i][k].y, E += distance(modelfill[i][k - 1], modelfill[i][k])*t);
+		}
+	}
+
+	fprintf(fp, ";LAYER:%d\n",model.size() - 2);
+
+	fprintf(fp, "G0 F2000 Z%.1f\n", 0.3 + (model.size() - 3) * z);
+	for (int i = 0; Bmin_x + 2 * i * 0.42 + 0.42 < Bmax_x; i++)  //µ¹ÊýÁ½²ã´òÊµ
+	{
+		fprintf(fp, "G0 F2000 X%f Y%f \n", Bmin_x + 2 * i * 0.42, Bmin_y);
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmin_x + 2 * i * 0.42, Bmax_y, E += (Bmax_y - Bmin_y)*t);
+		fprintf(fp, "G0 F2000 X%f Y%f \n", Bmin_x + 2 * i * 0.42 + 0.42, Bmax_y);
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmin_x + 2 * i * 0.42 + 0.42, Bmin_y, E += (Bmax_y - Bmin_y)*t);
+	}
+	fprintf(fp, ";LAYER:%d\n", model.size() - 1);
+
+	fprintf(fp, "G0 F2000 Z%.1f\n", 0.3 + (model.size() - 2) * z);
+	for (int i = 0; Bmin_y + 2 * i * 0.42 + 0.42 < Bmax_y; i++)  
+	{
+		fprintf(fp, "G0 F2000 X%f Y%f Z%.1f\n", Bmin_x, Bmin_y + 2 * i * 0.42, 0.47 + (model.size() - 2) * z);
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmax_x, Bmin_y + 2 * i * 0.42, E += (Bmax_y - Bmin_y)*t);
+		fprintf(fp, "G0 F2000 X%f Y%f \n", Bmax_x, Bmin_y + 2 * i * 0.42 + 0.42);
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmin_x, Bmin_y + 2 * i * 0.42 + 0.42, E += (Bmax_y - Bmin_y)*t);
+	}
+
+	fprintf(fp, "G1 F1500 E%f\n",E-=6);
+	fprintf(fp, "M104 S0                     ;extruder heater off\n");
+	fprintf(fp, "M107\n");
+	fprintf(fp, "G91\n");
+	fprintf(fp, "G90                         ;Disable relative movement\n");
+	fprintf(fp, "M82                         ;absolute extrusion mode\n");
+	fprintf(fp, "M104 S0\n");
+	fprintf(fp, "M104 T1 S0\n");
+	fprintf(fp, ";End GCode\n");
+
+	fclose(fp);
+}
+
+void writegcode(float z) //ÅÌÎÆµÄ¸ñÊ½£¬»òÕßcura
 {
 	float t = 0.060;//¶ÔÓ¦0.2µÄ²ãºñ
+	double E = 0;
+
 	FILE* fp;
 
 	errno_t err;     //ÅÐ¶Ï´ËÎÄ¼þÁ÷ÊÇ·ñ´æÔÚ ´æÔÚ·µ»Ø1
@@ -1080,45 +1714,35 @@ void writegcode(float z) //ÅÌÎÆµÄ¸ñÊ½
 	fprintf(fp, "G92 E0\n");
 	fprintf(fp, "G1 F1500 E-6.5\n");
 
-	fprintf(fp, ";LAYER_COUNT: %d\n", modelfill.size() + 1);
-	double E = 0;
-
-	fprintf(fp, ";LAYER:%d\n", 0);
-	//for (int j = 0; j < 25; j++) //´óµ××ù
-	//{
-	//	fprintf(fp, "G0 F300 X%.3f Y%.3f Z%.3f\n", j * 4 + 10.00, 10.00, 0.500);
-	//	fprintf(fp, "G1 F1000 X%.3f Y%.3f E%.3f\n", j * 4 + 10.00, 100.00, E += distance({ j * 4 + 10.00, 10.00 }, { j * 4 + 10.00, 100.00 })*0.3);
-	//	fprintf(fp, "G1 F300 X%.3f Y%.3f E%.3f\n", j * 4 + 12.00, 100.00, E += distance({ j * 4 + 10.00, 100.00 }, { j * 4 + 12.00, 100.00 })*0.3);
-	//	fprintf(fp, "G1 F1000 X%.3f Y%.3f E%.3f\n", j * 4 + 12.00, 10.00, E += distance({ j * 4 + 12.00, 100.00 }, { j * 4 + 12.00, 10.00 })*0.3);
-	//	fprintf(fp, "G1 F300 X%.3f Y%.3f E%.3f\n", j * 4 + 14.00, 10.00, E += distance({ j * 4 + 12.00, 10.00 }, { j * 4 + 14.00, 10.00 })*0.3);
-	//}
-
-	for (int j = 0; j < 15; j++) //Ð¡µ××ù
+	for (int i = 0; Bmin_x + i * 4 < Bmax_x; i++)  //µ××ù
 	{
-		fprintf(fp, "G0 F300 X%.3f Y%.3f Z%.3f\n", j * 4 + 30.00, 30.00, 0.500);
-		fprintf(fp, "G1 F1000 X%.3f Y%.3f E%.3f\n", j * 4 + 30.00, 100.00, E += distance({ j * 4 + 30.00, 30.00 }, { j * 4 + 30.00, 100.00 })*0.3);
-		fprintf(fp, "G1 F300 X%.3f Y%.3f E%.3f\n", j * 4 + 32.00, 100.00, E += distance({ j * 4 + 30.00, 100.00 }, { j * 4 + 32.00, 100.00 })*0.3);
-		fprintf(fp, "G1 F1000 X%.3f Y%.3f E%.3f\n", j * 4 + 32.00, 30.00, E += distance({ j * 4 + 32.00, 100.00 }, { j * 4 + 32.00, 30.00 })*0.3);
-		fprintf(fp, "G1 F300 X%.3f Y%.3f E%.3f\n", j * 4 + 34.00, 30.00, E += distance({ j * 4 + 32.00, 30.00 }, { j * 4 + 34.00, 30.00 })*0.3);
+		fprintf(fp, "G1 F2000 X%f Y%f Z%f F600\n", Bmin_x + i * 4, Bmin_y, 0.3);
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmin_x + i * 4, Bmax_y, E += (Bmax_y - Bmin_y)*(t + 0.03));
+		fprintf(fp, "G1 F300  X%f Y%f E%f\n", Bmin_x + i * 4 + 2, Bmax_y, E += (2)*(t + 0.03));
+		fprintf(fp, "G1 F1000 X%f Y%f E%f\n", Bmin_x + i * 4 + 2, Bmin_y, E += (Bmax_y - Bmin_y)*(t + 0.03));
+		fprintf(fp, "G1 F300  X%f Y%f E%f\n", Bmin_x + i * 4 + 4, Bmin_y, E += (2)*(t + 0.03));
 	}
 
+	fprintf(fp, ";LAYER_COUNT: %d\n", modelfill.size() + 1);
 	for (int i = 1; i < model.size(); i++) //Ã¿Ò»²ã i´ú±í²ãÊý      z²ãºñ t¼·³öÂÊ
 	{
 		fprintf(fp, ";LAYER:%d\n", i);
 
 		fprintf(fp, "G0 F2000 Z%.3f\n", 0.500 + i * z);//È¥µôÂÖÀªÏßÊ±ÓÃµ½£¬È·¶¨Z
 
-		//fprintf(fp, "G0 F2000 X%.3f Y%.3f Z%.3f\n", model[i][0].x, model[i][0].y, 0.500 + i * z);
-		//fprintf(fp, ";TYPE:OUTLINE\n");
-		//fprintf(fp, "G1 F1200 X%.3f Y%.3f E%.5f\n", model[i][1].x, model[i][1].y, E += distance(model[i][0], model[i][1])*t);
-		//for (int j = 2; j < model[i].size(); j++)
-		//{
-		//	fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][j].x, model[i][j].y, E += distance(model[i][j - 1], model[i][j])*t);
-		//}
-		//fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][0].x, model[i][0].y, E += distance(model[i][model[i].size() - 1], model[i][0])*t); //»­Ò»¸öÈ¦£¬Òª»ØÔ­µã
-		//fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][1].x, model[i][1].y, E += distance(model[i][model[i].size() - 1], model[i][0])*0.01);//»Øµ½Ô­µãÔÙ¶à³öÈ¥Ò»µã£¬ÓÐÀûÓÚ²»ÇÌ±ß
+		//ÂÖÀªÏß
+		fprintf(fp, "G0 F2000 X%.3f Y%.3f Z%.3f\n", model[i][0].x, model[i][0].y, 0.500 + i * z);
+		fprintf(fp, ";TYPE:OUTLINE\n");
+		fprintf(fp, "G1 F1200 X%.3f Y%.3f E%.5f\n", model[i][1].x, model[i][1].y, E += distance(model[i][0], model[i][1])*t);
+		for (int j = 2; j < model[i].size(); j++)
+		{
+			fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][j].x, model[i][j].y, E += distance(model[i][j - 1], model[i][j])*t);
+		}
+		fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][0].x, model[i][0].y, E += distance(model[i][model[i].size() - 1], model[i][0])*t); //»­Ò»¸öÈ¦£¬Òª»ØÔ­µã
+		fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][1].x, model[i][1].y, E += distance(model[i][model[i].size() - 1], model[i][0])*0.01);//»Øµ½Ô­µãÔÙ¶à³öÈ¥Ò»µã£¬ÓÐÀûÓÚ²»ÇÌ±ß
 
-		//fprintf(fp, ";TYPE:FILL\n");
+		//Ìî³äÏß
+		fprintf(fp, ";TYPE:FILL\n");
 		for (int k = 1; k < modelfill[i].size(); k += 2)
 		{
 			fprintf(fp, "G0 F2000 X%.3f Y%.3f\n", modelfill[i][k - 1].x, modelfill[i][k - 1].y);
@@ -1139,7 +1763,7 @@ void writegcode(float z) //ÅÌÎÆµÄ¸ñÊ½
 	fclose(fp);
 }
 
-void writegcode_makerbot(float z)
+void writegcode_makerbot(float z)//»¹ÊÇÓÃcuraµÄ¸ñÊ½È»ºóÓÃx3g×ª»»°É
 {
 	int layers = model.size();//´òÓ¡²ãÊý
 	float layer_height = z;//²ã¸ß,¸Ä´Ë²ÎÊýÒª¸Ä²½½øÂÊt
@@ -1159,38 +1783,70 @@ void writegcode_makerbot(float z)
 	//µÚÒ»²ãÂýÒ»µã
 	fprintf(fp, "M73 P%d\n", 0);//´òÓ¡½ø¶È°Ù·Ö±È
 	fprintf(fp, "G1 X%f Y%f Z%f F3000;travel move\n", Bmin_x - 0.01, Bmin_y - 0.01, 0.3);
-	for (int i = 0; Bmin_x+i*4<Bmax_x; i++)  //µ××ù
+	//for (int i = 0; Bmin_x+i*4<Bmax_x; i++)  //µ××ù
+	//{
+	//	fprintf(fp, "G1 X%f Y%f Z%f F600\n",     Bmin_x + i * 4,   Bmin_y, 0.3);
+	//	fprintf(fp, "G1 X%f Y%f Z%f F600 A%f\n", Bmin_x + i * 4,   Bmax_y, 0.3, A += (Bmax_y- Bmin_y)*(t+0.03));
+	//	fprintf(fp, "G1 X%f Y%f Z%f F600 A%f\n", Bmin_x + i * 4+2, Bmax_y, 0.3, A += (2)*(t+0.03));
+	//	fprintf(fp, "G1 X%f Y%f Z%f F600 A%f\n", Bmin_x + i * 4+2, Bmin_y, 0.3, A += (Bmax_y - Bmin_y)*(t+0.03));
+	//	fprintf(fp, "G1 X%f Y%f Z%f F600 A%f\n", Bmin_x + i * 4+4, Bmin_y, 0.3, A += (2)*(t+0.03));
+	//}
+	fprintf(fp, ";LAYER:0\n");
+	for (int i = 0; Bmin_x + 2 * i * 0.42 + 0.42 < Bmax_x; i++)  //µÚ1¡¢2²ã´òÊµ£¬µÚÒ»²ã¸ß¶ÈÊÇ0.27
 	{
-		fprintf(fp, "G1 X%f Y%f Z%f F600\n",     Bmin_x + i * 4,   Bmin_y, 0.3);
-		fprintf(fp, "G1 X%f Y%f Z%f F600 A%f\n", Bmin_x + i * 4,   Bmax_y, 0.3, A += (Bmax_y- Bmin_y)*(t+0.03));
-		fprintf(fp, "G1 X%f Y%f Z%f F600 A%f\n", Bmin_x + i * 4+2, Bmax_y, 0.3, A += (2)*(t+0.03));
-		fprintf(fp, "G1 X%f Y%f Z%f F600 A%f\n", Bmin_x + i * 4+2, Bmin_y, 0.3, A += (Bmax_y - Bmin_y)*(t+0.03));
-		fprintf(fp, "G1 X%f Y%f Z%f F600 A%f\n", Bmin_x + i * 4+4, Bmin_y, 0.3, A += (2)*(t+0.03));
+		fprintf(fp, "G0 F600 X%f Y%f Z%f\n", Bmin_x + 2 * i * 0.42, Bmin_y, 0.27);
+		fprintf(fp, "G1 F600 X%f Y%f Z%f A%f\n", Bmin_x + 2 * i * 0.42, Bmax_y, 0.27,A += (Bmax_y - Bmin_y)*t);
+		fprintf(fp, "G0 F600 X%f Y%f Z%f\n", Bmin_x + 2 * i * 0.42 + 0.42, Bmax_y, 0.27);
+		fprintf(fp, "G1 F600 X%f Y%f Z%f A%f\n", Bmin_x + 2 * i * 0.42 + 0.42, Bmin_y, 0.27,A += (Bmax_y - Bmin_y)*t);
+	}
+	fprintf(fp, ";LAYER:1\n");
+	for (int i = 0; Bmin_y + 2 * i * 0.42 + 0.42 < Bmax_y; i++)  //ÕâÊÇµÚ¶þ²ã£¬¶þ²ãÒÔºó¶¼ÊÇ0.2
+	{
+		fprintf(fp, "G0 F600 X%f Y%f Z%f\n", Bmin_x, Bmin_y + 2 * i * 0.42, 0.47);
+		fprintf(fp, "G1 F600 X%f Y%f Z%f A%f\n", Bmax_x, Bmin_y + 2 * i * 0.42, 0.47,A += (Bmax_y - Bmin_y)*t);
+		fprintf(fp, "G0 F600 X%f Y%f Z%f\n", Bmax_x, Bmin_y + 2 * i * 0.42 + 0.42, 0.47);
+		fprintf(fp, "G1 F600 X%f Y%f Z%f A%f\n", Bmin_x, Bmin_y + 2 * i * 0.42 + 0.42, 0.47,A += (Bmax_y - Bmin_y)*t);
 	}
 
-	for (int i = 0; i < model.size(); i++) 
+	for (int i = 0; i < model.size()-4; i++) //´òÓ¡ÂÖÀªºÍÌî³ä,´òÓ¡¼¸²ãÊµµÄ¾Í¼õ¼¸£¬ÔÙ¸Ä¸ß¶È
 	{
+		fprintf(fp, ";LAYER:%d\n",i+2);
 		fprintf(fp, "M73 P%d\n", int(i / layers) * 100);//´òÓ¡½ø¶È°Ù·Ö±È
-		fprintf(fp, "G1 X%f Y%f Z%f F2000;travel move\n", modelfill[i][0].x-0.01, modelfill[i][0].y-0.01, (i + 1)*layer_height + 0.3);
+		fprintf(fp, "G0 X%f Y%f Z%f F2000;travel move\n", modelfill[i][0].x-0.01, modelfill[i][0].y-0.01, 0.67 + i * z);
 
-		//fprintf(fp, "G0 F2000 X%.3f Y%.3f Z%.3f\n", model[i][0].x, model[i][0].y, 0.500 + i * z);
-		//fprintf(fp, ";TYPE:OUTLINE\n");
-		//fprintf(fp, "G1 F1200 X%.3f Y%.3f E%.5f\n", model[i][1].x, model[i][1].y, E += distance(model[i][0], model[i][1])*t);
-		//for (int j = 2; j < model[i].size(); j++)
-		//{
-		//	fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][j].x, model[i][j].y, E += distance(model[i][j - 1], model[i][j])*t);
-		//}
-		//fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][0].x, model[i][0].y, E += distance(model[i][model[i].size() - 1], model[i][0])*t); //»­Ò»¸öÈ¦£¬Òª»ØÔ­µã
-		//fprintf(fp, "G1 X%.3f Y%.3f E%.5f\n", model[i][1].x, model[i][1].y, E += distance(model[i][model[i].size() - 1], model[i][0])*0.01);//»Øµ½Ô­µãÔÙ¶à³öÈ¥Ò»µã£¬ÓÐÀûÓÚ²»ÇÌ±ß
+		fprintf(fp, "G0 F2000 X%.3f Y%.3f Z%.3f\n", model[i][0].x, model[i][0].y, 0.67 + i * z);
+		fprintf(fp, ";TYPE:OUTLINE\n");
+		fprintf(fp, "G1 F1200 X%.3f Y%.3f Z%f A%.5f\n", model[i][1].x, model[i][1].y, 0.67 + i * z, A += distance(model[i][0], model[i][1])*t);
+		for (int j = 2; j < model[i].size(); j++)
+		{
+			fprintf(fp, "G1 X%.3f Y%.3f Z%f A%.5f\n", model[i][j].x, model[i][j].y, 0.67 + i * z, A += distance(model[i][j - 1], model[i][j])*t);
+		}
+		fprintf(fp, "G1 X%.3f Y%.3f Z%f A%.5f\n", model[i][0].x, model[i][0].y, 0.67 + i * z, A += distance(model[i][model[i].size() - 1], model[i][0])*t); //»­Ò»¸öÈ¦£¬Òª»ØÔ­µã
+		fprintf(fp, "G1 X%.3f Y%.3f Z%f A%.5f\n", model[i][1].x, model[i][1].y, 0.67 + i * z, A += distance(model[i][model[i].size() - 1], model[i][0])*0.01);//»Øµ½Ô­µãÔÙ¶à³öÈ¥Ò»µã£¬ÓÐÀûÓÚ²»ÇÌ±ß
 
 		fprintf(fp, ";TYPE:FILL\n");
 		for (int k = 1; k < modelfill[i].size(); k += 2)
 		{
-			fprintf(fp, "G1 X%f Y%f Z%f F2000\n", modelfill[i][k - 1].x, modelfill[i][k - 1].y, (i + 1)*layer_height + 0.3);
-			fprintf(fp, "G1 X%.3f Y%.3f Z%f F1800 A%f\n", modelfill[i][k].x, modelfill[i][k].y, (i + 1)*layer_height + 0.3, A += distance(modelfill[i][k - 1], modelfill[i][k])*t);
+			fprintf(fp, "G1 X%f Y%f Z%f F2000\n", modelfill[i][k - 1].x, modelfill[i][k - 1].y, 0.67 + i * z);
+			fprintf(fp, "G1 X%f Y%f Z%f F1800 A%f\n", modelfill[i][k].x, modelfill[i][k].y, 0.67 + i * z, A += distance(modelfill[i][k - 1], modelfill[i][k])*t);
 		}
 	}
 
+	//for (int i = 0; Bmin_x + 2 * i * 0.42 + 0.42 < Bmax_x; i++)  //µ¹ÊýÁ½²ã´òÊµ
+	//{
+	//	fprintf(fp, "G0 X%f Y%f Z%f F2000\n", Bmin_x + 2 * i * 0.42, Bmin_y, 0.47 + (model.size() - 3) * z);
+	//	fprintf(fp, "G1 X%f Y%f Z%f A%f F1000\n", Bmin_x + 2 * i * 0.42, Bmax_y, 0.47 + (model.size() - 3) * z, A += (Bmax_y - Bmin_y)*t);
+	//	fprintf(fp, "G0 X%f Y%f Z%f F2000\n", Bmin_x + 2 * i * 0.42 + 0.42, Bmax_y,0.47 + (model.size() - 3) * z);
+	//	fprintf(fp, "G1 X%f Y%f Z%f A%f F1000\n", Bmin_x + 2 * i * 0.42 + 0.42, Bmin_y, 0.47 + (model.size() - 3) * z, A += (Bmax_y - Bmin_y)*t);
+	//}
+	//fprintf(fp, ";LAYER:%d\n", model.size() - 1);
+	//for (int i = 0; Bmin_y + 2 * i * 0.42 + 0.42 < Bmax_y; i++)
+	//{
+	//	fprintf(fp, "G0 X%f Y%f Z%f F2000\n", Bmin_x, Bmin_y + 2 * i * 0.42, 0.47 + (model.size() - 2) * z);
+	//	fprintf(fp, "G1 X%f Y%f Z%f A%f F1000 \n", Bmax_x, Bmin_y + 2 * i * 0.42, 0.47 + (model.size() - 2) * z, A += (Bmax_y - Bmin_y)*t);
+	//	fprintf(fp, "G0 X%f Y%f Z%f F2000\n", Bmax_x, Bmin_y + 2 * i * 0.42 + 0.42, 0.47 + (model.size() - 2) * z);
+	//	fprintf(fp, "G1 X%f Y%f Z%f A%f F1000 \n", Bmin_x, Bmin_y + 2 * i * 0.42 + 0.42, 0.47 + (model.size() - 2) * z, A += (Bmax_y - Bmin_y)*t);
+	//}
 	fclose(fp);
 }
 
@@ -1390,8 +2046,9 @@ void main(int argc, char** argv)
 
 	//************************************************************************±àÐ´Gcode
 	printf("Gcode writing...\n");
-	writegcode(z);
+	//writegcode(z);
 	//writegcode_makerbot(z);
+	writegcode_ultimaker3(z);
 	//writpointcloud();
 	printf("Gcode writing complete,file save as \"test gcode.gcode\"\n");
 

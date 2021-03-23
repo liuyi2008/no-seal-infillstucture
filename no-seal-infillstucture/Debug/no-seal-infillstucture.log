@@ -1,16 +1,99 @@
 ﻿  write-gcode.cpp
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(121): warning C4101: “ne1”: 未引用的局部变量
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(121): warning C4101: “nf”: 未引用的局部变量
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(961): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(970): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(973): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1105): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1122): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1171): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1187): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1228): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1230): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1240): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1242): warning C4018: “<”: 有符号/无符号不匹配
-f:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1377): warning C4326: “main”的返回类型应为“int”而非“void”
-  no-seal-infillstucture.vcxproj -> F:\repos\no-seal-infillstucture\Debug\no-seal-infillstucture.exe
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(122): warning C4305: “初始化”: 从“double”到“float”截断
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(124): warning C4101: “ne1”: 未引用的局部变量
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(124): warning C4101: “nf”: 未引用的局部变量
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(308): warning C4244: “=”: 从“double”转换到“Scalar”，可能丢失数据
+          with
+          [
+              Scalar=float
+          ]
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(400): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(401): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(402): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(403): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(440): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(441): warning C4244: “初始化”: 从“double”转换到“int”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(599): warning C4305: “初始化”: 从“double”到“float”截断
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(601): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1491): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1500): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1503): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1594): warning C4305: “初始化”: 从“double”到“float”截断
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1635): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1645): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1654): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1697): warning C4305: “初始化”: 从“double”到“float”截断
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1728): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1738): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1747): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1771): warning C4305: “初始化”: 从“double”到“float”截断
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1812): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1821): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1829): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1883): warning C4305: “参数”: 从“double”到“GLfloat”截断
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1885): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1887): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1889): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1891): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1895): warning C4305: “参数”: 从“double”到“GLfloat”截断
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1897): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1899): warning C4018: “<”: 有符号/无符号不匹配
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(1901): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(2034): warning C4326: “main”的返回类型应为“int”而非“void”
+d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(2035): warning C4305: “初始化”: 从“double”到“float”截断
+d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\geometry\vector11t.hh(738): warning C4244: “参数”: 从“const OtherScalar”转换到“const Scalar”，可能丢失数据
+          with
+          [
+              OtherScalar=double
+          ]
+          and
+          [
+              Scalar=float
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\polymesht.cc(394): note: 参见对正在编译的函数 模板 实例化“OpenMesh::VectorT<float,3> &OpenMesh::vectorize<float,3,double>(OpenMesh::VectorT<float,3> &,const OtherScalar &)”的引用
+          with
+          [
+              OtherScalar=double
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\polymesht.cc(393): note: 编译 类 模板 成员函数 "void OpenMesh::PolyMeshT<Kernel>::calc_vertex_normal_fast(OpenMesh::VertexHandle,OpenMesh::VectorT<float,3> &) const" 时
+          with
+          [
+              Kernel=OpenMesh::AttribKernelT<OpenMesh::FinalMeshItemsT<OpenMesh::DefaultTraits,true>,OpenMesh::TriConnectivity>
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\polymesht.cc(381): note: 参见对正在编译的函数 模板 实例化“void OpenMesh::PolyMeshT<Kernel>::calc_vertex_normal_fast(OpenMesh::VertexHandle,OpenMesh::VectorT<float,3> &) const”的引用
+          with
+          [
+              Kernel=OpenMesh::AttribKernelT<OpenMesh::FinalMeshItemsT<OpenMesh::DefaultTraits,true>,OpenMesh::TriConnectivity>
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\polymesht.cc(379): note: 编译 类 模板 成员函数 "OpenMesh::VectorT<float,3> OpenMesh::PolyMeshT<Kernel>::calc_vertex_normal(OpenMesh::VertexHandle) const" 时
+          with
+          [
+              Kernel=OpenMesh::AttribKernelT<OpenMesh::FinalMeshItemsT<OpenMesh::DefaultTraits,true>,OpenMesh::TriConnectivity>
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\polymesht.cc(458): note: 参见对正在编译的函数 模板 实例化“OpenMesh::VectorT<float,3> OpenMesh::PolyMeshT<Kernel>::calc_vertex_normal(OpenMesh::VertexHandle) const”的引用
+          with
+          [
+              Kernel=OpenMesh::AttribKernelT<OpenMesh::FinalMeshItemsT<OpenMesh::DefaultTraits,true>,OpenMesh::TriConnectivity>
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\polymesht.cc(265): note: 编译 类 模板 成员函数 "void OpenMesh::PolyMeshT<Kernel>::update_face_normals(void)" 时
+          with
+          [
+              Kernel=OpenMesh::AttribKernelT<OpenMesh::FinalMeshItemsT<OpenMesh::DefaultTraits,true>,OpenMesh::TriConnectivity>
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\polymesht.cc(250): note: 参见对正在编译的函数 模板 实例化“void OpenMesh::PolyMeshT<Kernel>::update_face_normals(void)”的引用
+          with
+          [
+              Kernel=OpenMesh::AttribKernelT<OpenMesh::FinalMeshItemsT<OpenMesh::DefaultTraits,true>,OpenMesh::TriConnectivity>
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\trimesht.cc(80): note: 编译 类 模板 成员函数 "OpenMesh::VectorT<float,3> OpenMesh::TriMeshT<OpenMesh::AttribKernelT<OpenMesh::FinalMeshItemsT<Traits,true>,OpenMesh::TriConnectivity>>::calc_face_normal(OpenMesh::FaceHandle) const" 时
+          with
+          [
+              Traits=OpenMesh::DefaultTraits
+          ]
+  d:\repos\no-seal-infillstucture\packages\openmesh.7.1.1\build\native\include\openmesh\core\mesh\trimesh_arraykernelt.hh(101): note: 参见对正在编译的 类 模板 实例化 "OpenMesh::TriMeshT<OpenMesh::AttribKernelT<OpenMesh::FinalMeshItemsT<Traits,true>,OpenMesh::TriConnectivity>>" 的引用
+          with
+          [
+              Traits=OpenMesh::DefaultTraits
+          ]
+  d:\repos\no-seal-infillstucture\no-seal-infillstucture\write-gcode.cpp(55): note: 参见对正在编译的 类 模板 实例化 "OpenMesh::TriMesh_ArrayKernelT<OpenMesh::DefaultTraits>" 的引用
+  no-seal-infillstucture.vcxproj -> D:\repos\no-seal-infillstucture\Debug\no-seal-infillstucture.exe
